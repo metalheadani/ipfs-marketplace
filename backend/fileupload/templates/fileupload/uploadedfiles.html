@@ -1,0 +1,31 @@
+{% include 'fileupload/header.html' %}
+{% load static %}
+<br><br><br>
+
+<center>
+<div class="container">
+
+{% if files %}
+{% for file in files %}
+
+  <div class="box">
+    <div class="boxContent">
+      <h1 class="title"><a class="titled" href="{% url 'fileupload:downloadfile' file.id %}" name="hashvalue" value="{{ file.id }}">{{ file.name }}</a></h1>
+      <br>
+      <p>Price : {{ file.price }} ETH</p>
+       <p>Seller : {{ file.user.username }}</p>
+      <br><br>
+    </div>
+  </div>
+
+{% endfor %}
+{% endif %}
+
+</div>
+</center>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% include 'fileupload/footer.html' %}
